@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b84bdd85f946944e8fbd363b83f811d, type: 3}
+  m_Name: WeatherAudioProfile
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Audio.WeatherAudioProfile
+  priority: 0
+  maxSimultaneousSources: 16
+  indoorVolumeMultiplier: 0.5
+  targetMixer: {fileID: 24100000, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
+  outdoorSnapshot: {fileID: 3270978877418376052, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
+  indoorSnapshot: {fileID: 3464412109589910348, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
+  snapshotTransition: 1
+  intensityToGlobalVolume:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  layers:
+  - id: AMB
+    clips:
+    - {fileID: 8300000, guid: a9ba1ad34c50e8a4a9d41d8e117cac6c, type: 3}
+    loop: 1
+    baseVolume: 0
+    pitchRange: {x: 0, y: 0}
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    intensityToVolume:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    crossfadeTime: 0
+    targetGroup: {fileID: 24300002, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
+  - id: PRECIP_NEAR
+    clips:
+    - {fileID: 8300000, guid: a9ba1ad34c50e8a4a9d41d8e117cac6c, type: 3}
+    loop: 1
+    baseVolume: 0.5
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    intensityToVolume:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    crossfadeTime: 0
+    targetGroup: {fileID: 24300002, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
+  - id: PRECIP_FAR
+    clips: []
+    loop: 1
+    baseVolume: 0
+    pitchRange: {x: 0.95, y: 1.05}
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    intensityToVolume:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    crossfadeTime: 0
+    targetGroup: {fileID: 24300002, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
+  - id: WIND_LOW
+    clips:
+    - {fileID: 8300000, guid: bdb19cd72a33b6d45aec5e2ac00f3da9, type: 3}
+    loop: 1
+    baseVolume: 0
+    pitchRange: {x: 0, y: 0}
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    intensityToVolume:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    crossfadeTime: 0
+    targetGroup: {fileID: 0}
+  - id: WIND_GUSTS
+    clips: []
+    loop: 0
+    baseVolume: 0
+    pitchRange: {x: 0, y: 0}
+    spatialBlend: 0
+    minDistance: 0
+    maxDistance: 0
+    rolloffMode: 0
+    intensityToVolume:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    crossfadeTime: 0
+    targetGroup: {fileID: 0}
+  transients: []
