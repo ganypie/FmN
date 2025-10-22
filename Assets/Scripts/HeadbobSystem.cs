@@ -1,79 +1,75 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HeadbobSystem : MonoBehaviour
+[RequireComponent(typeof(Camera))]
+[DefaultExecutionOrder(1000)]
+public class HeadBob : MonoBehaviour
 {
-    [Range(0.001f, 0.01f)]
-    public float Amount = 0.002f;
+    [Header("Настройки покачивания головы")]
+    public float bobbingSpeed = 10f;
+    public float bobbingAmount = 0.05f;
+    public float runAmplitudeMultiplier = 1.5f;
+    public float runSpeedMultiplier = 1.5f;
+    public float walkAmplitudeMultiplier = 1.0f;
+    public float walkSpeedMultiplier = 1.0f;
+    public float speedThreshold = 0.1f;
 
-    [Range(1f, 30f)]
-    public float Frequency = 10.0f;
+    [Header("Ссылки")]
+    [Tooltip("Ссылка на CharacterController игрока")]
+    public CharacterController controller;
 
-    [Range(10f, 100f)]
-    public float Smooth = 10.0f;
-
-    [Header("Run Multipliers")]
-    public float runAmplitudeMultiplier = 2f; // при беге амплитуда в 2 раза больше
-    public float runFrequencyMultiplier = 1.5f; // при беге частота в 1.5 раза больше
-
-    public CharacterController playerController;
-
-    private Vector3 startPos;
-    private Vector3 tempVec; // cached temp vector for calculations
-    private float inputMagnitude; // cached per-frame value
-    private float currentAmount; // cached per-frame value
-    private float currentFrequency; // cached per-frame value
+    private Transform camTransform;
+    private Vector3 originalLocalPos;
+    private float timer = 0f;
 
     void Start()
     {
-        startPos = transform.localPosition;
+        camTransform = transform;
+        originalLocalPos = camTransform.localPosition;
 
-        if (playerController == null)
+        // Если ссылка не задана вручную — ищем у родителей
+        if (controller == null)
         {
-            playerController = GetComponentInParent<CharacterController>();
+            controller = GetComponentInParent<CharacterController>();
+        }
+
+        if (controller == null)
+        {
+            Debug.LogError("HeadBob: Не найден CharacterController! Укажи ссылку вручную в инспекторе.");
         }
     }
 
     void Update()
     {
-        CheckForHeadbobTrigger();
-        StopHeadbob();
-    }
+        if (controller == null) return; // предотвращаем ошибку
 
-    private void CheckForHeadbobTrigger()
-    {
-        inputMagnitude = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).magnitude;
+        Vector3 horizontalVelocity = controller.velocity;
+        horizontalVelocity.y = 0;
+        float speed = horizontalVelocity.magnitude;
 
-        if (inputMagnitude > 0.01f)
+        if (speed > speedThreshold)
         {
-            StartHeadBob();
+            bool isRunning = speed > 5.5f; // можно откорректировать порог
+            float amplitudeMul = isRunning ? runAmplitudeMultiplier : walkAmplitudeMultiplier;
+            float speedMul = isRunning ? runSpeedMultiplier : walkSpeedMultiplier;
+
+            timer += Time.deltaTime * bobbingSpeed * speed * speedMul;
+
+            float sinOffset = Mathf.Sin(timer) * bobbingAmount * amplitudeMul;
+            camTransform.localPosition = new Vector3(
+                originalLocalPos.x,
+                originalLocalPos.y + sinOffset,
+                originalLocalPos.z
+            );
         }
-    }
-
-    private void StartHeadBob()
-    {
-        currentAmount = Amount;
-        currentFrequency = Frequency;
-
-        // Если бежим (Shift) — увеличиваем амплитуду и частоту
-        if (UnityEngine.InputSystem.Keyboard.current.leftShiftKey.isPressed)
+        else
         {
-            currentAmount *= runAmplitudeMultiplier;
-            currentFrequency *= runFrequencyMultiplier;
+            timer = 0f;
+            Vector3 currentPos = camTransform.localPosition;
+            camTransform.localPosition = new Vector3(
+                currentPos.x,
+                Mathf.Lerp(currentPos.y, originalLocalPos.y, Time.deltaTime * bobbingSpeed),
+                currentPos.z
+            );
         }
-
-        tempVec = Vector3.zero;
-        tempVec.y += Mathf.Lerp(tempVec.y, Mathf.Sin(Time.time * currentFrequency) * currentAmount * 1.4f, Smooth * Time.deltaTime);
-        tempVec.x += Mathf.Lerp(tempVec.x, Mathf.Cos(Time.time * currentFrequency / 2f) * currentAmount * 1.6f, Smooth * Time.deltaTime);
-
-        transform.localPosition += tempVec;
-    }
-
-    private void StopHeadbob()
-    {
-        if (transform.localPosition == startPos) return;
-
-        transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, Smooth * Time.deltaTime);
     }
 }

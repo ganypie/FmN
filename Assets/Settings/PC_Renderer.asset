@@ -114,7 +114,7 @@ MonoBehaviour:
   settings:
     ditherMaterial: {fileID: 2100000, guid: b1156646973194c409c6af4ae504d5c3, type: 2}
     renderPassEvent: 500
-    spread: 0.142
+    spread: 0.15
     redColorCount: 32
     greenColorCount: 32
     blueColorCount: 32
@@ -151,15 +151,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   m_Settings:
-    AOMethod: 0
-    Downsample: 1
+    AOMethod: 1
+    Downsample: 0
     AfterOpaque: 0
-    Source: 1
-    NormalSamples: 1
+    Source: 0
+    NormalSamples: 2
     Intensity: 0.4
     DirectLightingStrength: 1
     Radius: 0.3
-    Samples: 1
-    BlurQuality: 0
-    Falloff: 100
+    Samples: 2
+    BlurQuality: 1
+    Falloff: 200
     SampleCount: -1
