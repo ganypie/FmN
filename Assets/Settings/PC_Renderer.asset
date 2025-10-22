@@ -95,8 +95,8 @@ MonoBehaviour:
   settings:
     fogMaterial: {fileID: 2100000, guid: 4bfe7c69dd9e70e4cba118ed746d0f48, type: 2}
     renderPassEvent: 450
-    fogColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
-    fogDensity: 0.024
+    fogColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+    fogDensity: 0.034
     fogOffset: 0
 --- !u!114 &5013137544740139041
 MonoBehaviour:
