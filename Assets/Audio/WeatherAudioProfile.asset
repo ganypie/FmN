@@ -62,11 +62,11 @@ MonoBehaviour:
       m_RotationOrder: 0
     crossfadeTime: 0
     targetGroup: {fileID: 24300002, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
-  - id: PRECIP_NEAR
+  - id: WIND_LOW
     clips:
-    - {fileID: 8300000, guid: 1079075ac22aa4045a71dbbfffccbcc1, type: 3}
+    - {fileID: 8300000, guid: 1ef03de9f152b9848b2c7d3e9cd07e60, type: 3}
     loop: 1
-    baseVolume: 1
+    baseVolume: 0.1
     pitchRange: {x: 0.95, y: 1.05}
     spatialBlend: 0
     minDistance: 0
@@ -98,11 +98,11 @@ MonoBehaviour:
       m_RotationOrder: 0
     crossfadeTime: 0
     targetGroup: {fileID: 24300002, guid: 15f9938ea8f52874fa588de2385444ff, type: 2}
-  - id: WIND_LOW
+  - id: PRECIP_NEAR
     clips:
-    - {fileID: 8300000, guid: da21f6a96a6a3784bb2776e7d26a4c3d, type: 3}
+    - {fileID: 8300000, guid: f55e2b424853d6344821bd9d8a21469e, type: 3}
     loop: 1
-    baseVolume: 1
+    baseVolume: 0.4
     pitchRange: {x: 0.95, y: 1.05}
     spatialBlend: 0
     minDistance: 0

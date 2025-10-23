@@ -11103,7 +11103,7 @@ MonoBehaviour:
   rainProfile: {fileID: 11400000, guid: bfe6e1259cb61304d97ba459c031b8d3, type: 2}
   fogProfile: {fileID: 0}
   clearIntensity: 0
-  rainIntensity: 0.5
+  rainIntensity: 0.7
   fogIntensity: 0.2
   transitionTime: 0.5
   bindToSystemActive: 1
