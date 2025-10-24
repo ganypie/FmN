@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8899a07063b008941bac83dbbc4ccfd2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,3 +128,4 @@ MonoBehaviour:
   noteData: {fileID: 11400000, guid: 9bf44df7f83577246856d1da1e4a943d, type: 2}
   openOnInteract: 1
   removeOnPickup: 0
+  interactionDistance: 2
