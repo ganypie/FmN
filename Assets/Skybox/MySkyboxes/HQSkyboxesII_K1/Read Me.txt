@@ -1,0 +1,64 @@
+=========================================================================
+[K1] HIGH QUALITY SKYBOXES II
+by Kexikus
+=========================================================================
+
+ABOUT:
+This mod replaces every skybox and every planetary backdrop in the game with a new high resolution version made from scratch. 
+This includes a replacement of every skybox model to fix all the glaring issues with the original.
+There are also some additional minor changes that either fix issues with the vanilla environments or serve to better blend ingame terrain and skybox.
+Other than that I recommend you just check out the screenshots as pictures say more than a thousand words :) or check the video to see the animated skyboxes.
+
+You can find additional screenshot comparisons here: https://kexikus.github.io/HQSkyboxes_k1_Comparison/
+
+If you find any issues or have any other comments, please let me know and I'll see what can be done.
+
+INSTALLATION:
+Simply copy all the files from this archive into your K1 Override folder.
+Note: In order to experience all the changes, you need to load a savegame from before leaving Dantooine for the first time.
+
+UNINSTALLATION:
+Delete all those files again.
+
+COMPABILITY:
+This mod is not compatible with any mod that edits skyboxes in any way. This includes mods that only edit their models. There might also be rare incompabilities with mods that edit non-skybox area models if those models are also edited by this mod.
+
+PERMISSIONS:
+You may NOT redistribute any textures included in this archive without my explicit permission. You may however use all the models as long as you give me credit.
+
+CHANGELOG:
+2.0 Initial release of High Quality Skyboxes II
+2.1 (Hopefully) fixed an issue where the buildings in Taris Upper City would look cut off on some GPUs
+2.2 Fixed an issue where some skybox models would cause the game to crash on Mac and mobile
+
+CREDITS:
+This mod was created by Kexikus using mainly Terragen 4, Photoshop CS6 and 3ds Max as well as some After Effects. Additional tools used:
+
+KotOR Tool by Fred Tetra
+K-GFF by TK102
+MDL edit by bead-v
+MDLOps by ndix UR
+KOTORmax by bead-v
+tga2tpc by ndix UR
+
+Additional resources by:
+
+Andy Welder (https://www.renderosity.com/mod/freestuff/?item_id=67025): Dantooine tree model
+Animum (https://animium.com/2016/07/banyan-tree-3d-model): Yavin tree model
+Bioware: Taris buildings, Kashyyyk buildings, Kashyyyk tree textures, Manaan building textures, Hammerhead cruiser model, Yavin ruins
+dandelO: grass shader Dantooine and Yavin, snow shader Dantooine
+Jeronimoe (https://www.moddb.com/mods/old-republic-at-war): BOS:SR Taris ship models
+Jorak Uln: Taris window texture
+killst4r (http://www.turbosquid.com/FullPreview/Index.cfm/ID/490485): Unknown World palm tree
+Martin Frank (https://archive3d.net/?a=download&id=599b7cfe): Yavin bush model
+Misha Winkler (http://www.mwvizwork.com/): Grass model Dantooine and Yavin
+Quanon: Additional Taris buildings, Unknown World crashed ship
+rhcreations (https://sketchfab.com/3d-models/aztec-pyramid-69b83dbcff70435485e449f47a87cb5d): Yavin temple
+Riccardo Faidutti (SCIFI 3D): Additional Taris buildings 
+Solarsystem Scope (https://www.solarsystemscope.com/textures/): Moon textures Dantooine, Unknown World and Ord Mandell, Yavin texture
+Tom Patterson (www.shadedrelief.com): Yavin cloud texture
+Veronica Bush (https://archive3d.net/?a=download&id=c01a5bdf): Yavin bush model
+Yughues (https://www.deviantart.com/yughues/art/Free-3D-branches-textures-02-284639287): Kashyyyk branch texture
+Unattributed (http://www.terragen.org/index.php?action=tpmod;dl=item608): Unknown World fern model
+
+THIS MOD IS NOT SUPPORTED BY LUCASARTS OR BIOWARE. USE THIS FILE AT YOUR OWN RISK. NEITHER THE AUTHOR OF THIS MOD NOR THE COMPANIES MENTIONED ABOVE ARE RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER WHEN USING THIS FILE.
