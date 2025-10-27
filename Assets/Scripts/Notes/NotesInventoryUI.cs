@@ -100,19 +100,17 @@ public class NotesInventoryUI : MonoBehaviour
         if (listContent == null || listItemPrefab == null || NoteManager.Instance == null)
             return;
 
-        // 1. Отключаем все элементы списка и добавляем их в пул
-        for (int i = 0; i < listContent.childCount; i++)
+        // 1. Деактивируем все элементы и добавляем их в пул
+        foreach (Transform child in listContent)
         {
-            var child = listContent.GetChild(i).gameObject;
-            if (!pooledListItems.Contains(child))
-                pooledListItems.Add(child);
-            child.SetActive(false);
+            if (!pooledListItems.Contains(child.gameObject))
+                pooledListItems.Add(child.gameObject);
+            child.gameObject.SetActive(false);
         }
 
-        // 2. Получаем текущие заметки
+        // 2. Берём только собранные заметки
         var notes = NoteManager.Instance.GetAllNotes();
 
-        // 3. Создаём или берём из пула элементы списка
         foreach (var note in notes)
         {
             GameObject go;
@@ -128,10 +126,10 @@ public class NotesInventoryUI : MonoBehaviour
                 go = Instantiate(listItemPrefab);
             }
 
-            // Устанавливаем правильного родителя в Layout
+            // Правильный родитель и масштаб
             go.transform.SetParent(listContent, false);
 
-            // Настраиваем элемент
+            // Настройка UI через InventoryItemUI
             var itemUI = go.GetComponent<InventoryItemUI>();
             if (itemUI != null)
                 itemUI.Setup(note, this);
@@ -144,11 +142,9 @@ public class NotesInventoryUI : MonoBehaviour
     {
         if (note == null) return;
 
-        // Обновляем текст
         if (viewerTitleText != null) viewerTitleText.text = note.title;
         if (viewerBodyText != null) viewerBodyText.text = note.text;
 
-        // Обновляем превью модели
         ClearPreview();
 
         if (note.modelPrefab != null && previewSpawnRoot != null)
@@ -157,7 +153,6 @@ public class NotesInventoryUI : MonoBehaviour
             currentPreviewInstance.transform.localPosition = Vector3.zero;
             currentPreviewInstance.transform.localRotation = Quaternion.identity;
 
-            // Добавляем ModelRotator, если нет
             if (currentPreviewInstance.GetComponent<ModelRotator>() == null)
             {
                 var rotator = currentPreviewInstance.AddComponent<ModelRotator>();

@@ -63781,7 +63781,7 @@ MonoBehaviour:
   closeButton: {fileID: 1928838668}
   listContent: {fileID: 1317460407}
   listItemPrefab: {fileID: 1839126455177778387, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
-  viewerTitleText: {fileID: 2032636407}
+  viewerTitleText: {fileID: 2952003792480359067}
   viewerBodyText: {fileID: 1799219875}
   previewSpawnRoot: {fileID: 0}
   scriptsToDisable:
@@ -65228,17 +65228,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4563637298700409943, guid: 46be97b6befbed947ab4e69585f7007f, type: 3}
---- !u!114 &2032636407 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2589536820954666566, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
-  m_PrefabInstance: {fileID: 4351743319504064504}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!64 &2034983125
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89021,7 +89010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1839126455177778387, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2589536820954666566, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
       propertyPath: m_margin.w
@@ -89073,7 +89062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5648936832142544869, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648936832142544869, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
       propertyPath: m_SizeDelta.x
@@ -89113,11 +89102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5648936832142544869, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 215.35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648936832142544869, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648936832142544869, guid: 3afdd8568042a5d4b9e67d6b3bb33544, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
