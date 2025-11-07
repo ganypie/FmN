@@ -128,4 +128,4 @@ MonoBehaviour:
   noteData: {fileID: 11400000, guid: 7c938549f12b57a4f9446d22c8538ac2, type: 2}
   openOnInteract: 1
   removeOnPickup: 1
-  interactionDistance: 2
+  interactionDistance: 4

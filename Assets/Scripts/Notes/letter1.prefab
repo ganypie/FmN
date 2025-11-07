@@ -127,5 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteInteractable
   noteData: {fileID: 11400000, guid: 9bf44df7f83577246856d1da1e4a943d, type: 2}
   openOnInteract: 1
-  removeOnPickup: 0
-  interactionDistance: 2
+  removeOnPickup: 1
+  interactionDistance: 4
