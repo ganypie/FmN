@@ -12,6 +12,13 @@ public class SimpleDoor : MonoBehaviour, IInteractable
     [Header("Easing Curve")]
     public AnimationCurve speedCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
+    [Header("Sound Settings")]
+    public AudioSource audioSource;        // Источник звука
+    public AudioClip openSound;            // Звук открытия
+    public AudioClip closeSound;           // Звук закрытия
+    [Range(0f, 1f)] public float soundVolume = 1f; // Громкость
+    [Range(0.5f, 2f)] public float soundPitch = 1f; // Скорость (высота) звука
+
     private Quaternion closedRot;
     private Quaternion targetRot;
     private bool isOpen = false;
@@ -26,6 +33,13 @@ public class SimpleDoor : MonoBehaviour, IInteractable
             if (go != null) player = go.transform;
         }
         cachedCollider = GetComponent<Collider>();
+
+        // Проверяем, есть ли источник звука, если нет — создаём
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
     }
 
     void Start()
@@ -47,15 +61,13 @@ public class SimpleDoor : MonoBehaviour, IInteractable
         }
     }
 
-
     public bool CanInteract(Transform interactor)
     {
         if (interactor == null) return false;
+        if (cachedCollider == null) return false;
 
-		if (cachedCollider == null) return false;
-
-		float dist = InteractionUtils.ComputeDistanceToInteractor(cachedCollider, interactor);
-		return dist <= interactDistance;
+        float dist = InteractionUtils.ComputeDistanceToInteractor(cachedCollider, interactor);
+        return dist <= interactDistance;
     }
 
     public void Interact(Transform interactor)
@@ -73,10 +85,23 @@ public class SimpleDoor : MonoBehaviour, IInteractable
                 targetRot = closedRot * Quaternion.Euler(0f, 0f, -openAngle);
             else
                 targetRot = closedRot * Quaternion.Euler(0f, 0f, openAngle);
+
+            PlayDoorSound(openSound);
         }
         else
         {
             targetRot = closedRot;
+            PlayDoorSound(closeSound);
         }
+    }
+
+    private void PlayDoorSound(AudioClip clip)
+    {
+        if (clip == null || audioSource == null) return;
+
+        audioSource.clip = clip;
+        audioSource.volume = soundVolume;
+        audioSource.pitch = soundPitch;
+        audioSource.Play();
     }
 }

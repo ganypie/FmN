@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851d5c4e6ffbab940a0462ccd7a479f5, type: 3}
   m_Name: DitherFeature
   m_EditorClassIdentifier: Assembly-CSharp::DitherFeature
-  m_Active: 1
+  m_Active: 0
   settings:
     ditherMaterial: {fileID: 2100000, guid: b1156646973194c409c6af4ae504d5c3, type: 2}
     renderPassEvent: 500
@@ -156,9 +156,9 @@ MonoBehaviour:
     AfterOpaque: 0
     Source: 0
     NormalSamples: 2
-    Intensity: 0.4
+    Intensity: 2
     DirectLightingStrength: 1
-    Radius: 0.3
+    Radius: 1
     Samples: 2
     BlurQuality: 1
     Falloff: 200
