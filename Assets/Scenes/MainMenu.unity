@@ -104496,6 +104496,7 @@ GameObject:
   - component: {fileID: 1847217085}
   - component: {fileID: 1847217087}
   - component: {fileID: 1847217088}
+  - component: {fileID: 1847217089}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -104579,6 +104580,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1847217089}
+        m_TargetAssemblyTypeName: NewGameButton, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1847217086
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -104650,6 +104663,19 @@ MonoBehaviour:
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
   audioSource: {fileID: 0}
+--- !u!114 &1847217089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847217083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5c1c68e5ec2d64e9a48a1fa1456f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewGameButton
+  firstGameScene: SampleScene
 --- !u!1 &1849614279
 GameObject:
   m_ObjectHideFlags: 0
