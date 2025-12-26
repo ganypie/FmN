@@ -13,6 +13,9 @@ public class PickupableItem : MonoBehaviour, IInteractable
     [Tooltip("Выберите, к какой руке относится предмет при подборе")]
     [SerializeField] private HandSide handSide = HandSide.Right;
 
+    // Публичное свойство для чтения, чтобы другие системы могли проверять, в какую руку назначен предмет
+    public HandSide Hand => handSide;
+
     [Header("Pickup Settings")]
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private Transform player; // Ссылка на игрока
@@ -128,6 +131,12 @@ public class PickupableItem : MonoBehaviour, IInteractable
         {
             if (it != null && it.IsPickedUp && it.handSide == HandSide.Right)
             {
+                // Дрова нельзя выбросить — их нужно положить в камин
+                if (it.GetComponent<PileItem>() != null)
+                {
+                    Debug.Log("[PickupableItem] Дрова нельзя выбросить — надо положить их в камин");
+                    return;
+                }
                 it.ForceDrop();
                 return; // только один предмет
             }
@@ -180,6 +189,7 @@ public class PickupableItem : MonoBehaviour, IInteractable
     private void PickupItem(Transform interactor)
     {
         // Если у игрока уже есть предмет той же руки, выбрасываем его
+        // ИСКЛЮЧЕНИЕ: дрова (PileItem) можно накапливать, они не выбрасываются
     PickupableItem[] all;
 #if UNITY_2023_2_OR_NEWER
     all = Object.FindObjectsByType<PickupableItem>(FindObjectsSortMode.None);
@@ -191,6 +201,11 @@ public class PickupableItem : MonoBehaviour, IInteractable
             if (other == this) continue;
             if (other.IsPickedUp && other.handSide == this.handSide)
             {
+                // Дрова можно держать несколько одновременно — не выбрасываем их
+                if (other.GetComponent<PileItem>() != null || this.GetComponent<PileItem>() != null)
+                {
+                    continue;
+                }
                 // Просто сбрасываем предмет без броска
                 other.DropItem(false);
             }

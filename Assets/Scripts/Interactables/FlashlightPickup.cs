@@ -28,5 +28,12 @@ public class FlashlightPickup : MonoBehaviour, IInteractable
         flashlightOnTable.SetActive(false);
         flashlightInHand.SetActive(true);
         interactCollider.enabled = false;
+        
+        // Если у включенного объекта есть контроллер фонарика — вызываем PickUp, чтобы его состояние было корректным
+        var controller = flashlightInHand.GetComponent<FlashlightController>();
+        if (controller != null)
+        {
+            controller.PickUp(interactor);
+        }
     }
 }

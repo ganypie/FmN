@@ -87,6 +87,10 @@ public class SimpleDoor : MonoBehaviour, IInteractable
                 targetRot = closedRot * Quaternion.Euler(0f, 0f, openAngle);
 
             PlayDoorSound(openSound);
+
+            // --- добавляем сигнал для задачи ---
+            if (DoorWatcher.Instance != null)
+                DoorWatcher.Instance.DoorOpened();
         }
         else
         {
@@ -94,6 +98,7 @@ public class SimpleDoor : MonoBehaviour, IInteractable
             PlayDoorSound(closeSound);
         }
     }
+
 
     private void PlayDoorSound(AudioClip clip)
     {
